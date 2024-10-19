@@ -6,6 +6,11 @@ public class Main {
 		
 		// TODO
 		// testing
+		GPSPoint GPSPoint = new GPSPoint(1, 2.0, 3.0, 5.0);
+		
+		GPSPoint.getTime();
+		GPSPoint.setTime(2);
+		GPSPoint.toString();
 		
 	}
 
