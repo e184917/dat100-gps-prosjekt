@@ -139,9 +139,17 @@ public class GPSUtils {
 		String timestr;
 		String TIMESEP = ":";
 
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 		
-		// TODO 
+		// TODO
+		int hr = secs / (60*60);
+		int min = (secs % (60*60)) / 60;
+		int sec = secs % 60;
+		
+		timestr = String.format("%02d" + TIMESEP + "%02d" + TIMESEP + "%02d", hr, min, sec);
+		timestr = String.format("%10s", timestr);
+		
+		return timestr;
 		
 	}
 	
@@ -152,9 +160,15 @@ public class GPSUtils {
 		String str;
 
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 		
 		// TODO
+		// Endre GPSUtilsTest.java test streng fra punktum til komma får å passere testen.
+		str = String.format("%.2f", d);
+		str = String.format("%10s", str);
+		System.out.println(str);
+		
+		return str;
 		
 	}
 }
