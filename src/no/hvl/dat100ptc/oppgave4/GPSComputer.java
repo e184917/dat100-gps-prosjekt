@@ -79,18 +79,23 @@ public class GPSComputer {
 	public double[] speeds() {
 
 		double[] speeds = new double[gpspoints.length-1];
+		for(int i = 0; i > gpspoints.length; i++) {
+			double distance = GPSUtils.distance(gpspoints[i], gpspoints[i + 1]);
+			double time = gpspoints[i + 1].getTime() - gpspoints[i].getTime();
+	        speeds[i] = distance / time;
+		}
+		return speeds;
 		
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
+		// TODO throw new UnsupportedOperationException(TODO.method());
 		
 	}
 	
 	public double maxSpeed() {
 		
-		double maxspeed = 0;
+		double[] speeds = speeds();
+	    return GPSUtils.findMax(speeds);
 		
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		// TODO throw new UnsupportedOperationException(TODO.method());
 	
 	}
 
@@ -108,20 +113,17 @@ public class GPSComputer {
 	public static final double MS = 2.23;
 
 	public double kcal(double weight, int secs, double speed) {
+		
+		double totalDistance = totalDistance(); // i meter
+	    double totalTime = totalTime(); // i sekunder
+	    double averageSpeed = (totalDistance / 1000) / (totalTime / 3600); // konverterer til km/t
+	    return averageSpeed;
 
-		double kcal;
-
-		double met = 0;		
-		double speedmph = speed * MS;
-
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		// TODO  throw new UnsupportedOperationException(TODO.method());
 		
 	}
 
 	public double totalKcal(double weight) {
-
-		double totalkcal = 0;
 
 		// TODO 
 		throw new UnsupportedOperationException(TODO.method());
